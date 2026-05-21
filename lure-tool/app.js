@@ -183,42 +183,29 @@
       }
     };
 
-    const populateTypes = (availableTypes) => {
-      const current = typeSelect.value;
-      typeSelect.innerHTML = '';
-      typeSelect.appendChild(el('option', { value: '', text: '— выбери тип —' }));
-      availableTypes.forEach(t => {
-        const opt = el('option', { value: t, text: t });
-        if (t === current) opt.selected = true;
-        typeSelect.appendChild(opt);
-      });
-      if (!availableTypes.includes(current)) {
-        STATE.formValues.lure_type = null;
-      }
-    };
-
     // Init size list with all sizes
     populateSizes(allSizes);
 
-    // Cross-filter on type change
+    // Type change → filter available sizes, keep size if still valid
     typeSelect.addEventListener('change', () => {
       const chosen = typeSelect.value;
       STATE.formValues.lure_type = chosen || null;
-      if (chosen) {
-        populateSizes(typeToSizes[chosen] || allSizes);
-      } else {
-        populateSizes(allSizes);
-      }
+      populateSizes(chosen ? (typeToSizes[chosen] || allSizes) : allSizes);
     });
 
-    // Cross-filter on size change
+    // Size change → types list stays full, but reset size if combo doesn't exist
     sizeSelect.addEventListener('change', () => {
-      const chosen = sizeSelect.value;
-      STATE.formValues.size_inches = chosen || null;
-      if (chosen) {
-        populateTypes(sizeToTypes[parseFloat(chosen)] || allTypes);
-      } else {
-        populateTypes(allTypes);
+      const chosenSize = parseFloat(sizeSelect.value) || null;
+      const chosenType = STATE.formValues.lure_type;
+      STATE.formValues.size_inches = chosenSize ? String(chosenSize) : null;
+
+      // If a type is already selected and this size doesn't have it — reset size
+      if (chosenSize && chosenType) {
+        const validSizesForType = typeToSizes[chosenType] || [];
+        if (!validSizesForType.includes(chosenSize)) {
+          sizeSelect.value = '';
+          STATE.formValues.size_inches = null;
+        }
       }
     });
 
@@ -276,7 +263,6 @@
       $$('.form-control').forEach(c => c.value = '');
       $$('.chip--selected').forEach(c => c.classList.remove('chip--selected'));
       populateSizes(allSizes);
-      populateTypes(allTypes);
       const result = $('#configurator-result');
       result.innerHTML = '';
       result.hidden = true;
