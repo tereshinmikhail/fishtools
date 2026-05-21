@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Подбор оснастки для силиконовых приманок</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <h1>Силиконовые приманки</h1>
+    <p class="subtitle">Подбор оснастки: грузы, крючки, монтажи, рыба</p>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button class="tab tab--active" data-tab="configurator" role="tab" aria-selected="true">
+    <span class="tab-label">Конфигуратор</span>
+    <span class="tab-hint">по условиям рыбалки</span>
+  </button>
+  <button class="tab" data-tab="table" role="tab" aria-selected="false">
+    <span class="tab-label">Таблица</span>
+    <span class="tab-hint">общий справочник</span>
+  </button>
+  <button class="tab" data-tab="reference" role="tab" aria-selected="false">
+    <span class="tab-label">Справка</span>
+    <span class="tab-hint">методология, источники</span>
+  </button>
+</nav>
+
+<main class="content">
+
+  <!-- ============ CONFIGURATOR ============ -->
+  <section class="panel panel--active" data-panel="configurator" role="tabpanel">
+    <div class="panel-inner">
+      <p class="panel-intro">Выбери условия рыбалки — получишь рекомендацию по оснастке. Все параметры опциональны кроме первых двух.</p>
+
+      <div id="configurator-form" class="form">
+        <!-- form will be rendered by JS from recommendation_rules.json -->
+      </div>
+
+      <div class="form-actions">
+        <button id="config-submit" class="btn btn--primary" type="button">Получить рекомендацию</button>
+        <button id="config-reset" class="btn btn--ghost" type="button">Сбросить</button>
+      </div>
+
+      <div id="configurator-result" class="result" hidden>
+        <!-- result will be rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TABLE ============ -->
+  <section class="panel" data-panel="table" role="tabpanel" hidden>
+    <div class="panel-inner">
+      <p class="panel-intro">Полный справочник по всем размерам и типам приманок. На мобильном — карточный вид.</p>
+
+      <div class="table-filters" id="table-filters">
+        <!-- filters rendered by JS -->
+      </div>
+
+      <div id="table-container">
+        <!-- table rendered by JS, desktop -->
+      </div>
+
+      <div id="cards-container">
+        <!-- cards rendered by JS, mobile -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REFERENCE ============ -->
+  <section class="panel" data-panel="reference" role="tabpanel" hidden>
+    <div class="panel-inner">
+      <div class="ref-content">
+
+        <div class="ref-section">
+          <h2>О проекте</h2>
+          <p>Инструмент помогает подобрать оснастку для джиговой ловли на силикон: вес груза, тип и размер крючка, монтаж, проводку.</p>
+          <p>База данных собрана из открытых источников (производители крючков, обзоры практиков) и экспертных рекомендаций. Покрывает диапазон от микроджига (0.5 г) до классики (до 40 г).</p>
+        </div>
+
+        <div class="ref-section">
+          <h2>Контекст применимости</h2>
+          <ul class="ref-list">
+            <li><strong>Регион:</strong> Россия, средняя полоса. Реки и водохранилища.</li>
+            <li><strong>Целевые виды:</strong> окунь, судак, щука, голавль, язь, берш, жерех.</li>
+            <li><strong>Техника:</strong> от микроджига до классического джига.</li>
+            <li><strong>Типичная глубина:</strong> 1.5–4 м (рекомендации корректируются под другие условия).</li>
+            <li><strong>Течение:</strong> от стоячей воды до умеренного (с поправкой для сильного).</li>
+          </ul>
+        </div>
+
+        <div class="ref-section">
+          <h2>Как работает конфигуратор</h2>
+          <ol class="ref-list ref-list--ordered">
+            <li>По размеру и типу приманки находится базовая запись в БД</li>
+            <li>Базовый вес груза умножается на коэффициенты глубины и течения</li>
+            <li>Результат округляется до ближайшего стандартного веса чебурашки</li>
+            <li>По условиям дна определяется приоритетный крючок (одинарник vs офсет)</li>
+            <li>Выбирается оптимальный тип монтажа для комбинации условий</li>
+            <li>Сверяется выбранная рыба со списком целевой для этой приманки</li>
+            <li>Проверяются «нерабочие» комбинации (например, 1″ виброхвост на щуку)</li>
+            <li>Выводится рекомендация с обоснованием каждого пункта</li>
+          </ol>
+        </div>
+
+        <div class="ref-section">
+          <h2>Грузы по размерам приманок</h2>
+          <table class="ref-table">
+            <thead>
+              <tr><th>Размер</th><th>Типичный груз</th><th>Экстремальные условия</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1″</td><td>0.5 – 1.5 г</td><td>до 3 г</td></tr>
+              <tr><td>1.5″</td><td>1 – 2.5 г</td><td>до 5 г</td></tr>
+              <tr><td>2″</td><td>2 – 4 г</td><td>6 – 8 г</td></tr>
+              <tr><td>2.5″</td><td>3 – 7 г</td><td>до 14 г</td></tr>
+              <tr><td>3″</td><td>5 – 12 г</td><td>16 – 22 г</td></tr>
+              <tr><td>4″</td><td>10 – 18 г</td><td>22 – 30 г</td></tr>
+              <tr><td>5″</td><td>16 – 28 г</td><td>30 – 40 г</td></tr>
+            </tbody>
+          </table>
+          <p class="ref-note">«Типичный» — это глубина 1.5–4 м без сильного течения. «Экстремальный» — глубина 5+ м или сильное течение.</p>
+        </div>
+
+        <div class="ref-section">
+          <h2>Рекомендуемые крючки</h2>
+          <div id="hooks-reference">
+            <!-- rendered by JS from hooks_reference.json -->
+          </div>
+        </div>
+
+        <div class="ref-section">
+          <h2>Принципы выбора крючка</h2>
+          <ul class="ref-list">
+            <li><strong>На приманках до 1″</strong> — только открытый одинарник. Офсет на такой мелочи даёт неприемлемое число сходов.</li>
+            <li><strong>На 1.5–2″</strong> — одинарник предпочтительнее, офсет допустим в коряжнике/траве.</li>
+            <li><strong>На 2.5–3″</strong> — паритет. Одинарник для открытой воды, офсет для коряжника и крупной рыбы.</li>
+            <li><strong>На 4–5″</strong> — преимущественно офсет; одинарник используется на джиг-головке без шарнира.</li>
+            <li><strong>Для червей и слагов</strong> — либо ультра-тонкий одинарник, либо удлинённый офсет (Decoy Worm 9).</li>
+            <li><strong>Для раков и креатур</strong> — Wide Gap офсет обязателен из-за объёмного тела.</li>
+          </ul>
+        </div>
+
+        <div class="ref-section">
+          <h2>Источники данных</h2>
+          <ul class="ref-list">
+            <li>Производители: Decoy (Katsuichi Co., Ltd.), Owner America — каталожные данные по размерам и спецификациям.</li>
+            <li>Размерные ряды: BestAngler.com, SportFishTackle.com, Tackle Warehouse.</li>
+            <li>Связки «приманка ↔ офсет»: Дмитрий Савин, «Путеводитель по Decoy» (midacompany.ru).</li>
+            <li>Методология выбора крючков для микроджига: Николай Дунаев, SpinningSpb.ru.</li>
+            <li>Дополнительный материал: fmagazin.ru, fishingsib.ru, fspinning.ru.</li>
+          </ul>
+        </div>
+
+        <div class="ref-section">
+          <h2>Ограничения</h2>
+          <ul class="ref-list">
+            <li>Связки «конкретный размер офсета ↔ конкретная модель приманки» верифицированы в основном для Keitech. Для других брендов — экстраполяция по размеру и форме тела.</li>
+            <li>Грузы для дроп-шота и отводного приведены как ориентир — в этих монтажах груз и крючок разнесены, и логика подбора отличается.</li>
+            <li>Список эталонных приманок не претендует на исчерпывающий — это узнаваемые модели для ориентира.</li>
+            <li>Все рекомендации — стартовая точка, не догма. Реальная рыбалка корректирует подход.</li>
+          </ul>
+        </div>
+
+        <div class="ref-section ref-section--meta">
+          <p class="ref-meta">База данных: версия 0.2.0 · обновлена 21 мая 2026</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <p>База данных открытая, обновляется. Замечания и уточнения приветствуются.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "metadata": {
+    "version": "0.1.0",
+    "last_updated": "2026-05-21",
+    "description": "Правила для конфигуратора: как корректировать рекомендации в зависимости от условий рыбалки",
+    "usage": "Конфигуратор берёт базовые данные из lures_data.json и применяет к ним правила/коэффициенты из этого файла"
+  },
+
+  "user_inputs": {
+    "size_inches": {
+      "label": "Размер приманки",
+      "type": "single_select",
+      "options": [1.0, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0]
+    },
+    "lure_type": {
+      "label": "Тип приманки",
+      "type": "single_select",
+      "options": ["виброхвост", "твистер", "слаг", "рак", "креатура", "червь"]
+    },
+    "target_fish": {
+      "label": "Целевая рыба",
+      "type": "multi_select",
+      "options": ["окунь", "судак", "щука", "голавль", "язь", "берш", "жерех"]
+    },
+    "season": {
+      "label": "Сезон",
+      "type": "single_select",
+      "options": [
+        {"value": "spring", "label": "Весна"},
+        {"value": "summer", "label": "Лето"},
+        {"value": "autumn", "label": "Осень"},
+        {"value": "winter_open", "label": "Зима (открытая вода)"}
+      ]
+    },
+    "depth": {
+      "label": "Глубина точки",
+      "type": "single_select",
+      "options": [
+        {"value": "shallow",   "label": "до 2 м",  "midpoint_m": 1.5},
+        {"value": "mid",       "label": "2 – 4 м", "midpoint_m": 3.0},
+        {"value": "deep",      "label": "4 – 6 м", "midpoint_m": 5.0},
+        {"value": "very_deep", "label": "6+ м",    "midpoint_m": 8.0}
+      ]
+    },
+    "current": {
+      "label": "Течение",
+      "type": "single_select",
+      "options": [
+        {"value": "none",     "label": "Нет"},
+        {"value": "weak",     "label": "Слабое"},
+        {"value": "moderate", "label": "Умеренное"},
+        {"value": "strong",   "label": "Сильное"}
+      ]
+    },
+    "water_body": {
+      "label": "Тип водоёма",
+      "type": "single_select",
+      "options": [
+        {"value": "still_water",  "label": "Стоячий (пруд, озеро, карьер)"},
+        {"value": "small_river",  "label": "Малая река"},
+        {"value": "big_river",    "label": "Большая река"},
+        {"value": "reservoir",    "label": "Водохранилище"}
+      ]
+    },
+    "cover": {
+      "label": "Условия дна / окружения",
+      "type": "single_select",
+      "options": [
+        {"value": "clean",  "label": "Чистое дно"},
+        {"value": "snags",  "label": "Коряжник"},
+        {"value": "grass",  "label": "Трава, заросли"},
+        {"value": "rocks",  "label": "Камни, перекаты"}
+      ]
+    },
+    "brand_preference": {
+      "label": "Предпочтения по бренду крючка",
+      "type": "single_select",
+      "optional": true,
+      "options": [
+        {"value": "any",   "label": "Без предпочтений"},
+        {"value": "decoy", "label": "Только Decoy"},
+        {"value": "owner", "label": "Только Owner"}
+      ]
+    }
+  },
+
+  "weight_calculation": {
+    "description": "Формула вычисления рекомендуемого груза: берётся base_weight из lures_data.json (середина typical-диапазона) и умножается на множители глубины и течения. Затем округляется до ближайшего стандартного веса чебурашки (1, 1.5, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8, 10, 12, 14, 16, 18, 20, 22, 25, 28, 32, 36, 40 г).",
+
+    "depth_multipliers": {
+      "shallow":   1.00,
+      "mid":       1.25,
+      "deep":      1.65,
+      "very_deep": 2.10
+    },
+
+    "current_multipliers": {
+      "none":     1.00,
+      "weak":     1.15,
+      "moderate": 1.40,
+      "strong":   1.80
+    },
+
+    "hard_caps": {
+      "description": "Если расчётный вес выходит за weight_extreme_g — нужно либо менять приманку на крупнее, либо использовать снос/иную тактику. Конфигуратор предупреждает пользователя.",
+      "behavior": "warn_user_and_suggest_larger_lure"
+    },
+
+    "standard_weights_g": [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8, 10, 12, 14, 16, 18, 20, 22, 25, 28, 32, 36, 40]
+  },
+
+  "hook_priority_by_cover": {
+    "description": "Какой тип крючка приоритетен в зависимости от условий дна/окружения",
+    "rules": {
+      "clean":  {"priority": "single", "reasoning": "На чистом дне реализация одинарника выше, потери минимальны"},
+      "snags":  {"priority": "offset", "reasoning": "В коряжнике офсет даёт незацепляйку и спасает приманки"},
+      "grass":  {"priority": "offset", "reasoning": "В траве офсет проходит чисто, одинарник постоянно собирает мусор"},
+      "rocks":  {"priority": "single", "reasoning": "На камнях ключевая проблема — обрывы шнура, не зацепы крючка. Одинарник предпочтительнее"}
+    }
+  },
+
+  "rig_priority_by_conditions": {
+    "description": "Какой монтаж приоритетен для конкретной комбинации условий",
+    "rules": [
+      {
+        "conditions": {"cover": "snags", "depth": ["mid", "deep"]},
+        "priority": "шарнир_чебурашка",
+        "reasoning": "Шарнир с офсетом — стандарт для джига в коряжнике"
+      },
+      {
+        "conditions": {"current": "none", "depth": "shallow", "lure_type": ["слаг", "червь"]},
+        "priority": "дроп-шот",
+        "reasoning": "Стоячая вода + пассивная приманка — классические условия для дроп-шота"
+      },
+      {
+        "conditions": {"current": "strong", "depth": "deep"},
+        "priority": "шарнир_чебурашка",
+        "reasoning": "Тяжёлый груз на шарнире — единственный рабочий вариант на сильном течении и глубине"
+      },
+      {
+        "conditions": {"cover": "grass", "lure_type": ["слаг", "креатура", "рак"]},
+        "priority": "Texas_rig",
+        "reasoning": "В траве классика — Texas rig с офсетом"
+      },
+      {
+        "conditions": {"target_fish": ["окунь"], "lure_type": ["червь", "слаг"], "depth": ["shallow", "mid"]},
+        "priority": "отводной",
+        "reasoning": "Окунь по червю/слагу — отводной поводок отлично работает"
+      }
+    ]
+  },
+
+  "incompatible_combinations": {
+    "description": "Комбинации, на которые конфигуратор должен выдавать предупреждение",
+    "rules": [
+      {
+        "if": {"size_inches": 1.0, "target_fish": ["щука"]},
+        "warning": "1″ приманка на щуку нерационально. Минимум — 2.5–3″.",
+        "severity": "high"
+      },
+      {
+        "if": {"size_inches": 1.0, "depth": ["deep", "very_deep"]},
+        "warning": "1″ приманка на 4+ метрах нерабочая — масса груза, нужная для адекватного падения, превышает разумную для такой приманки. Возьми приманку покрупнее.",
+        "severity": "high"
+      },
+      {
+        "if": {"lure_type": "рак", "target_fish": ["жерех"]},
+        "warning": "Жерех на рака не ловится — пелагический хищник, питается уклейкой/мальком в верхних слоях. Выбери виброхвост или слаг.",
+        "severity": "high"
+      },
+      {
+        "if": {"lure_type": "креатура", "target_fish": ["жерех", "уклейка"]},
+        "warning": "Креатура не подходит для жереха и подобной пелагической рыбы.",
+        "severity": "high"
+      },
+      {
+        "if": {"size_inches": 5.0, "target_fish": ["окунь"], "exclude": ["окунь_трофейный"]},
+        "warning": "5″ приманка для стандартного окуня великовата. Если ловишь именно трофейного — норм, иначе уменьши до 2–3″.",
+        "severity": "medium"
+      },
+      {
+        "if": {"current": "strong", "size_inches": [1.0, 1.5]},
+        "warning": "Микроприманки на сильном течении сносит независимо от груза. Либо ищи спокойные карманы, либо меняй приманку.",
+        "severity": "medium"
+      }
+    ]
+  },
+
+  "seasonality_notes": {
+    "description": "Сезонные предпочтения по типам приманок (общие правила, применяются как контекст к рекомендации)",
+    "by_lure_type": {
+      "виброхвост": {
+        "best": ["summer", "autumn"],
+        "good": ["spring", "winter_open"],
+        "note": "Универсален. Поздней осенью — медленнее проводка."
+      },
+      "твистер": {
+        "best": ["summer"],
+        "good": ["spring", "autumn"],
+        "note": "Активная игра — теплая вода и активная рыба."
+      },
+      "слаг": {
+        "best": ["spring", "winter_open", "late_autumn"],
+        "good": ["summer"],
+        "note": "Холодная вода, пассивная рыба — лучшее время для слага."
+      },
+      "червь": {
+        "best": ["spring", "summer"],
+        "good": ["autumn"],
+        "note": "Сложная вода, после фронта, прессинговая рыба. Окунь круглый год."
+      },
+      "рак": {
+        "best": ["summer", "early_autumn"],
+        "good": ["spring"],
+        "note": "Раки наиболее активны в тёплой воде — хищник это знает."
+      },
+      "креатура": {
+        "best": ["autumn"],
+        "good": ["summer"],
+        "note": "Щука поздней осенью отлично реагирует на объёмные креатуры."
+      }
+    }
+  },
+
+  "brand_filter_logic": {
+    "description": "При фильтре по бренду — какие модели остаются",
+    "decoy": ["Decoy Single 32", "Decoy Worm 17 KG", "Decoy Worm 11 Tournament", "Decoy Worm 25 Wide", "Decoy Worm 9", "Decoy Worm 15"],
+    "owner": ["Owner S-59", "Owner Float Rigger", "Owner Offset 5102", "Owner J-Light Hook"]
+  }
+}

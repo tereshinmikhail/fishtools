@@ -1,0 +1,669 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "metadata": {
+    "version": "0.2.0",
+    "last_updated": "2026-05-21",
+    "language": "ru",
+    "description": "Справочная таблица: силиконовые приманки → грузы, крючки, монтажи, рыба. Расширена под конфигуратор.",
+    "context": {
+      "geography": "Россия, средняя полоса / реки и водохранилища",
+      "techniques": "от микроджига до классического джига",
+      "assumptions": [
+        "Глубина типичной точки: 1.5–4 м",
+        "Течение: от стоячей воды до умеренного",
+        "Целевые виды: окунь, судак, щука, голавль, язь, берш, жерех",
+        "Грузы — для шарнира при базовых условиях; корректируются через recommendation_rules.json"
+      ]
+    }
+  },
+  "lures": [
+    {
+      "id": "vibro_1",
+      "size_inches": 1.0,
+      "size_mm": 25,
+      "type": "виброхвост",
+      "weight_base_g": 1.0,
+      "weight_typical_g": "0.5 – 1.5",
+      "weight_extreme_g": "до 3",
+      "single_hook": {
+        "primary": {"model": "Owner S-59", "size": "#10 – #8"},
+        "alternative": {"model": "Decoy Single 32", "size": "#10 – #8"}
+      },
+      "offset_hook": {
+        "note": "На 1″ виброхвосте офсет не рекомендуется — сходы будут зашкаливать"
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "single", "grass": "single", "rocks": "single"},
+      "rigs": ["джиг-головка", "шарнир_чебурашка", "отводной_поводок"],
+      "target_fish": {"primary": ["окунь"], "secondary": ["ёрш", "уклейка", "язь_мелкий"]},
+      "seasonality": {"best": ["summer", "autumn"], "good": ["spring"], "marginal": ["winter_open"]},
+      "water_body_fit": {"still_water": "high", "small_river": "high", "big_river": "low", "reservoir": "medium"},
+      "retrieve": "Короткая ступенька в 2 оборота, длинные паузы. На паузе хвост работает на падении.",
+      "example_lures": ["Lucky John Pro Series Tioga 1″", "Crazy Fish Tipsy 1″", "Reins Aji Ringer Shad 1″"]
+    },
+    {
+      "id": "twister_1",
+      "size_inches": 1.0,
+      "size_mm": 25,
+      "type": "твистер",
+      "weight_base_g": 1.0,
+      "weight_typical_g": "0.5 – 1.5",
+      "weight_extreme_g": "до 2.5",
+      "single_hook": {
+        "primary": {"model": "Owner S-59 / Float Rigger", "size": "#10 – #8"},
+        "alternative": {"model": "Decoy Single 32", "size": "#10"}
+      },
+      "offset_hook": {"note": "На 1″ твистере офсет не работает — слишком много сходов"},
+      "hook_priority_by_cover": {"clean": "single", "snags": "single", "grass": "single", "rocks": "single"},
+      "rigs": ["джиг-головка", "шарнир_чебурашка"],
+      "target_fish": {"primary": ["окунь"], "secondary": ["уклейка"]},
+      "seasonality": {"best": ["summer"], "good": ["spring", "autumn"]},
+      "water_body_fit": {"still_water": "high", "small_river": "high", "big_river": "low", "reservoir": "medium"},
+      "retrieve": "Равномерная медленная или короткая ступенька. Хвост требует постоянного движения.",
+      "example_lures": ["Crazy Fish Cruel Leech 1″", "Lucky John Hogy Hog 1″", "Reins Bubring Shaker 1.5″"]
+    },
+    {
+      "id": "vibro_15",
+      "size_inches": 1.5,
+      "size_mm": 38,
+      "type": "виброхвост",
+      "weight_base_g": 1.5,
+      "weight_typical_g": "1 – 2.5",
+      "weight_extreme_g": "до 5",
+      "single_hook": {
+        "primary": {"model": "Owner S-59 / Float Rigger", "size": "#8 – #6"},
+        "alternative": {"model": "Decoy Single 32", "size": "#8 – #6"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 11 Tournament", "size": "#4"},
+        "alternative": {"model": "Owner J-Light Hook", "size": "#6"},
+        "note": "На 1.5–1.8″ офсет допустим, но одинарник по реализации лучше"
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["джиг-головка", "шарнир_чебурашка", "отводной_поводок", "дроп-шот"],
+      "target_fish": {"primary": ["окунь"], "secondary": ["голавль", "язь_мелкий", "судак_мелкий", "жерех_мелкий"]},
+      "seasonality": {"best": ["summer", "autumn"], "good": ["spring"]},
+      "water_body_fit": {"still_water": "high", "small_river": "high", "big_river": "medium", "reservoir": "high"},
+      "retrieve": "Ступенька 2-3 оборота с паузой 1-2 сек. Лёгкое подёргивание удилищем на паузе.",
+      "example_lures": ["Crazy Fish Vibro Fat 1.6″", "Keitech Easy Shiner 2″", "Lucky John Tioga 2″"]
+    },
+    {
+      "id": "twister_15",
+      "size_inches": 1.5,
+      "size_mm": 38,
+      "type": "твистер",
+      "weight_base_g": 1.5,
+      "weight_typical_g": "1 – 2.5",
+      "weight_extreme_g": "до 4",
+      "single_hook": {
+        "primary": {"model": "Owner S-59 / Float Rigger", "size": "#6 – #8"},
+        "alternative": {"model": "Decoy Single 32", "size": "#6"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 11 Tournament", "size": "#4"},
+        "alternative": {"model": "Owner J-Light Hook", "size": "#6"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["джиг-головка", "шарнир_чебурашка", "отводной"],
+      "target_fish": {"primary": ["окунь"], "secondary": ["голавль", "жерех_мелкий"]},
+      "seasonality": {"best": ["summer"], "good": ["spring", "autumn"]},
+      "water_body_fit": {"still_water": "high", "small_river": "high", "big_river": "medium", "reservoir": "high"},
+      "retrieve": "Равномерная проводка или ступенька. Хвост-серп работает только при движении.",
+      "example_lures": ["Reins Bubring Shaker 1.5″", "Crazy Fish Allure 1.5″", "Mottomo Daphnia 1.7″"]
+    },
+    {
+      "id": "slug_15",
+      "size_inches": 1.5,
+      "size_mm": 38,
+      "type": "слаг",
+      "weight_base_g": 1.0,
+      "weight_typical_g": "0.5 – 2",
+      "weight_extreme_g": "до 3",
+      "single_hook": {
+        "primary": {"model": "Owner S-59", "size": "#8 – #6"},
+        "alternative": {"model": "Decoy Single 32", "size": "#8"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 11 Tournament", "size": "#4"},
+        "note": "Часто ловят без огрузки или с минимальной — для медленного падения"
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["шарнир_чебурашка", "дроп-шот", "Texas_rig", "wacky_rig"],
+      "target_fish": {"primary": ["окунь"], "secondary": ["голавль", "форель_ручьевая", "жерех_мелкий"]},
+      "seasonality": {"best": ["spring", "winter_open"], "good": ["autumn"], "marginal": ["summer"]},
+      "water_body_fit": {"still_water": "high", "small_river": "high", "big_river": "medium", "reservoir": "high"},
+      "retrieve": "Очень медленная подача, свободный дриф по струе, паузы на падении.",
+      "example_lures": ["Reins Bubring Shaker 1.5″", "Crazy Fish Polaris 1.8″", "Lucky John Wacky Worm 1.5″"]
+    },
+    {
+      "id": "vibro_2",
+      "size_inches": 2.0,
+      "size_mm": 50,
+      "type": "виброхвост",
+      "weight_base_g": 3.0,
+      "weight_typical_g": "2 – 4",
+      "weight_extreme_g": "6 – 8",
+      "single_hook": {
+        "primary": {"model": "Decoy Single 32", "size": "#6 – #4"},
+        "alternative": {"model": "Owner S-59", "size": "#6 – #4"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 11 Tournament", "size": "#4 – #2"},
+        "alternative": {"model": "Owner J-Light Hook", "size": "#6 – #4"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["шарнир_чебурашка", "джиг-головка", "отводной", "дроп-шот"],
+      "target_fish": {"primary": ["окунь", "судак_до_1.5кг"], "secondary": ["голавль", "щука_мелкая", "жерех"]},
+      "seasonality": {"best": ["summer", "autumn"], "good": ["spring"]},
+      "water_body_fit": {"still_water": "high", "small_river": "high", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Классическая ступенька 2-3 оборота с паузой. Универсальный формат микроджига.",
+      "example_lures": ["Keitech Easy Shiner 2″", "Crazy Fish Vibro Fat 2″", "Lucky John Spark Tail 2″", "Reins Rockvibe Shad 2″"]
+    },
+    {
+      "id": "twister_2",
+      "size_inches": 2.0,
+      "size_mm": 50,
+      "type": "твистер",
+      "weight_base_g": 3.0,
+      "weight_typical_g": "2 – 4",
+      "weight_extreme_g": "до 7",
+      "single_hook": {
+        "primary": {"model": "Decoy Single 32", "size": "#6 – #4"},
+        "alternative": {"model": "Owner S-59", "size": "#6"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 11 Tournament", "size": "#4 – #2"},
+        "alternative": {"model": "Decoy Worm 17", "size": "#2"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["шарнир_чебурашка", "джиг-головка", "отводной", "Carolina_rig"],
+      "target_fish": {"primary": ["окунь"], "secondary": ["голавль", "судак_мелкий", "жерех"]},
+      "seasonality": {"best": ["summer"], "good": ["spring", "autumn"]},
+      "water_body_fit": {"still_water": "high", "small_river": "high", "big_river": "medium", "reservoir": "high"},
+      "retrieve": "Равномерка средней скорости или ступенька. Серповидный хвост даёт акустический сигнал.",
+      "example_lures": ["Crazy Fish Cruel Leech 2″", "Lucky John Hogy Hog 2″", "Mann's M-066"]
+    },
+    {
+      "id": "slug_2",
+      "size_inches": 2.0,
+      "size_mm": 50,
+      "type": "слаг",
+      "weight_base_g": 2.0,
+      "weight_typical_g": "1 – 3",
+      "weight_extreme_g": "до 5",
+      "single_hook": {
+        "primary": {"model": "Owner S-59 / Float Rigger", "size": "#6 – #4"},
+        "alternative": {"model": "Decoy Single 32", "size": "#6"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 11 Tournament", "size": "#4 – #2"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["дроп-шот", "Texas_rig", "wacky_rig", "шарнир_чебурашка"],
+      "target_fish": {"primary": ["окунь", "судак"], "secondary": ["голавль", "жерех"]},
+      "seasonality": {"best": ["spring", "winter_open"], "good": ["autumn"], "marginal": ["summer"]},
+      "water_body_fit": {"still_water": "high", "small_river": "high", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Пассивная анимация: дриф, короткое подёргивание с длинной паузой. Холодная вода.",
+      "example_lures": ["Lucky John Wacky Worm 2″", "Crazy Fish Polaris 2.4″", "Reins Aji Adder 2″"]
+    },
+    {
+      "id": "craw_2",
+      "size_inches": 2.0,
+      "size_mm": 50,
+      "type": "рак",
+      "weight_base_g": 3.5,
+      "weight_typical_g": "2 – 5",
+      "weight_extreme_g": "до 10",
+      "single_hook": {
+        "primary": {"model": "Owner S-59", "size": "#6 – #4"},
+        "note": "Открытый одинарник предпочтителен — клешни лучше играют"
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 11 Tournament / Decoy Worm 25", "size": "#4 – #2"},
+        "alternative": {"model": "Saikyo BS-2315BN", "size": "#4"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "offset"},
+      "rigs": ["шарнир_чебурашка", "отводной", "Texas_rig"],
+      "target_fish": {"primary": ["окунь", "голавль"], "secondary": ["судак"]},
+      "seasonality": {"best": ["summer", "early_autumn"], "good": ["spring"], "marginal": ["winter_open"]},
+      "water_body_fit": {"still_water": "medium", "small_river": "high", "big_river": "high", "reservoir": "medium"},
+      "retrieve": "Дно: короткие подбросы со ступенькой. Имитация убегающего рака.",
+      "example_lures": ["Bait Breath Rush Craw 2″", "Lucky John Hogy Hog Craw 2″", "Crazy Fish Crayfish 1.8″"]
+    },
+    {
+      "id": "vibro_25",
+      "size_inches": 2.5,
+      "size_mm": 63,
+      "type": "виброхвост",
+      "weight_base_g": 5.0,
+      "weight_typical_g": "3 – 7",
+      "weight_extreme_g": "до 14",
+      "single_hook": {
+        "primary": {"model": "Decoy Single 32", "size": "#4 – #2"},
+        "alternative": {"model": "Owner S-59", "size": "#4"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 11 Tournament", "size": "#2 – #1"},
+        "alternative": {"model": "Decoy Worm 17 KG", "size": "#2 – #1"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["шарнир_чебурашка", "джиг-головка", "отводной", "Carolina_rig"],
+      "target_fish": {"primary": ["окунь", "судак", "жерех"], "secondary": ["щука_до_2кг", "голавль_крупный"]},
+      "seasonality": {"best": ["summer", "autumn"], "good": ["spring", "winter_open"]},
+      "water_body_fit": {"still_water": "high", "small_river": "high", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Универсал: ступенька, равномерка, твичинг. Работает по всей рыбе кроме трофея.",
+      "example_lures": ["Keitech Easy Shiner 2.5″ / 2.8″", "Crazy Fish Vibro Worm 2.5″", "Lucky John Tioga 2.4″", "Reins Bubring Shad 2.5″"]
+    },
+    {
+      "id": "twister_25",
+      "size_inches": 2.5,
+      "size_mm": 63,
+      "type": "твистер",
+      "weight_base_g": 5.0,
+      "weight_typical_g": "3 – 7",
+      "weight_extreme_g": "до 12",
+      "single_hook": {
+        "primary": {"model": "Decoy Single 32", "size": "#4 – #2"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 11 Tournament", "size": "#2"},
+        "alternative": {"model": "Decoy Worm 17 KG", "size": "#2"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["шарнир_чебурашка", "джиг-головка", "отводной"],
+      "target_fish": {"primary": ["окунь", "судак"], "secondary": ["берш", "жерех"]},
+      "seasonality": {"best": ["summer"], "good": ["spring", "autumn"]},
+      "water_body_fit": {"still_water": "high", "small_river": "high", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Ступенька, медленная равномерка. На паузе серп играет дольше виброхвоста.",
+      "example_lures": ["Mister Twister 2.5″", "Lucky John Hogy Hog 2.5″", "Reins G-Tail Saturn 2.5″"]
+    },
+    {
+      "id": "creature_25",
+      "size_inches": 2.5,
+      "size_mm": 63,
+      "type": "креатура",
+      "weight_base_g": 6.0,
+      "weight_typical_g": "4 – 9",
+      "weight_extreme_g": "до 16",
+      "single_hook": {
+        "primary": {"model": "Decoy Single 32", "size": "#2 – #1"},
+        "note": "Используется редко — обычно офсет"
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 25 Wide", "size": "#1 – #1/0"},
+        "alternative": {"model": "Decoy Worm 17 KG", "size": "#1"}
+      },
+      "hook_priority_by_cover": {"clean": "offset", "snags": "offset", "grass": "offset", "rocks": "offset"},
+      "rigs": ["шарнир_чебурашка", "Texas_rig", "отводной"],
+      "target_fish": {"primary": ["судак", "щука_до_2кг"], "secondary": ["окунь_трофейный"]},
+      "seasonality": {"best": ["autumn"], "good": ["summer"], "marginal": ["spring", "winter_open"]},
+      "water_body_fit": {"still_water": "high", "small_river": "medium", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Медленная ступенька, длинные паузы на дне. Имитация донной живности.",
+      "example_lures": ["Reins Bubring Hog 2.5″", "Keitech Crazy Flapper 2.8″", "Lucky John Hogy Hog 2.5″"]
+    },
+    {
+      "id": "worm_25",
+      "size_inches": 2.5,
+      "size_mm": 63,
+      "type": "червь",
+      "weight_base_g": 3.0,
+      "weight_typical_g": "1 – 5",
+      "weight_extreme_g": "до 10",
+      "single_hook": {
+        "primary": {"model": "Owner Float Rigger", "size": "#6 – #4"},
+        "note": "Червь требует максимальной свободы игры"
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 11 Tournament", "size": "#4 – #2"},
+        "alternative": {"model": "Owner J-Light Hook", "size": "#6"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["дроп-шот", "отводной", "Texas_rig", "Carolina_rig", "wacky_rig"],
+      "target_fish": {"primary": ["окунь"], "secondary": ["судак", "берш"]},
+      "seasonality": {"best": ["spring", "summer"], "good": ["autumn"]},
+      "water_body_fit": {"still_water": "high", "small_river": "high", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Дроп-шот: короткое потряхивание. Отводной: медленная протяжка по дну.",
+      "example_lures": ["Lucky John Wacky Worm 2.5″", "Reins Aji Adder 2.5″", "Crazy Fish MF Anchovy 2.5″"]
+    },
+    {
+      "id": "vibro_3",
+      "size_inches": 3.0,
+      "size_mm": 75,
+      "type": "виброхвост",
+      "weight_base_g": 8.0,
+      "weight_typical_g": "5 – 12",
+      "weight_extreme_g": "16 – 22",
+      "single_hook": {
+        "primary": {"model": "Decoy Single 32", "size": "#2 – #1"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 17 KG", "size": "#1 – #1/0"},
+        "verified_pairings": [
+          {"bait": "Keitech Swing Impact 3″", "hook_size": "#1 (Worm 17) / #1/0 (Worm 25)"},
+          {"bait": "Keitech Easy Shiner 3″", "hook_size": "#1/0 (Worm 17) / #1 (Worm 25)"}
+        ]
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["шарнир_чебурашка", "джиг-головка", "Texas_rig"],
+      "target_fish": {"primary": ["судак", "щука", "жерех"], "secondary": ["берш", "окунь_трофейный"]},
+      "seasonality": {"best": ["summer", "autumn"], "good": ["spring", "winter_open"]},
+      "water_body_fit": {"still_water": "high", "small_river": "medium", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Классическая джиговая ступенька. Базовый размер для лёгкого джига.",
+      "example_lures": ["Keitech Easy Shiner 3″", "Keitech Swing Impact 3″", "Lucky John Tioga 3.4″", "Reins Bubring Shad 3″", "Crazy Fish Vibro Worm 3″"]
+    },
+    {
+      "id": "twister_3",
+      "size_inches": 3.0,
+      "size_mm": 75,
+      "type": "твистер",
+      "weight_base_g": 7.0,
+      "weight_typical_g": "5 – 10",
+      "weight_extreme_g": "до 18",
+      "single_hook": {
+        "primary": {"model": "Decoy Single 32", "size": "#2 – #1"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 17 KG", "size": "#1"},
+        "alternative": {"model": "Decoy Worm 11 Tournament", "size": "#1"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["шарнир_чебурашка", "джиг-головка"],
+      "target_fish": {"primary": ["судак"], "secondary": ["берш", "окунь", "жерех"]},
+      "seasonality": {"best": ["summer"], "good": ["spring", "autumn"]},
+      "water_body_fit": {"still_water": "medium", "small_river": "medium", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Медленная ступенька. Хвост работает дольше виброхвоста на паузе.",
+      "example_lures": ["Mister Twister 3″", "Lucky John Hogy Hog 3″", "Reins G-Tail Saturn 3.5″"]
+    },
+    {
+      "id": "slug_3",
+      "size_inches": 3.0,
+      "size_mm": 75,
+      "type": "слаг",
+      "weight_base_g": 6.0,
+      "weight_typical_g": "3 – 9",
+      "weight_extreme_g": "до 14",
+      "single_hook": {
+        "primary": {"model": "Decoy Single 32", "size": "#2 – #1"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 17 KG", "size": "#1 – #1/0"},
+        "alternative": {"model": "Decoy Worm 9 / 15", "size": "#1/0"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["Texas_rig", "wacky_rig", "дроп-шот", "шарнир_чебурашка"],
+      "target_fish": {"primary": ["щука", "судак"], "secondary": ["окунь_трофейный", "жерех"]},
+      "seasonality": {"best": ["spring", "winter_open"], "good": ["autumn"], "marginal": ["summer"]},
+      "water_body_fit": {"still_water": "high", "small_river": "medium", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Незацепляйка в траве/корягах. Медленное падение, рывки с длинными паузами.",
+      "example_lures": ["Reins Slug 3″", "Keitech Sexy Impact 3.5″", "Lucky John Wacky Worm 3″"]
+    },
+    {
+      "id": "craw_3",
+      "size_inches": 3.0,
+      "size_mm": 75,
+      "type": "рак",
+      "weight_base_g": 10.0,
+      "weight_typical_g": "6 – 14",
+      "weight_extreme_g": "до 22",
+      "single_hook": {"note": "Для рака 3″ одинарник используется редко — рекомендуется офсет"},
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 25 Wide", "size": "#1 – #1/0"},
+        "alternative": {"model": "Decoy Worm 17 KG", "size": "#1/0"}
+      },
+      "hook_priority_by_cover": {"clean": "offset", "snags": "offset", "grass": "offset", "rocks": "offset"},
+      "rigs": ["шарнир_чебурашка", "Texas_rig", "Carolina_rig"],
+      "target_fish": {"primary": ["судак", "щука"], "secondary": ["голавль_крупный"]},
+      "seasonality": {"best": ["summer", "early_autumn"], "good": ["spring"]},
+      "water_body_fit": {"still_water": "medium", "small_river": "high", "big_river": "high", "reservoir": "medium"},
+      "retrieve": "Дно: подброс на 30-50 см, пауза, повтор. Имитация скачущего рака.",
+      "example_lures": ["Bait Breath Rush Craw 2.8″", "Keitech Crazy Flapper 3.6″", "Lucky John Hogy Hog 3″"]
+    },
+    {
+      "id": "creature_3",
+      "size_inches": 3.0,
+      "size_mm": 75,
+      "type": "креатура",
+      "weight_base_g": 11.0,
+      "weight_typical_g": "7 – 16",
+      "weight_extreme_g": "до 24",
+      "single_hook": {"note": "Креатуры — почти всегда офсет"},
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 25 Wide", "size": "#1/0 – #2/0"},
+        "alternative": {"model": "Decoy Worm 17 KG", "size": "#1/0"}
+      },
+      "hook_priority_by_cover": {"clean": "offset", "snags": "offset", "grass": "offset", "rocks": "offset"},
+      "rigs": ["шарнир_чебурашка", "Texas_rig", "Punch_rig"],
+      "target_fish": {"primary": ["щука", "судак"], "secondary": []},
+      "seasonality": {"best": ["autumn"], "good": ["summer"]},
+      "water_body_fit": {"still_water": "high", "small_river": "medium", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Медленная подача с паузами. Хороша по растительности.",
+      "example_lures": ["Reins Bubring Hog 3″", "Keitech Crazy Flapper 3.6″", "Pontoon21 AwarukoCreature 3″"]
+    },
+    {
+      "id": "worm_3",
+      "size_inches": 3.0,
+      "size_mm": 75,
+      "type": "червь",
+      "weight_base_g": 4.5,
+      "weight_typical_g": "2 – 7",
+      "weight_extreme_g": "до 12",
+      "single_hook": {
+        "primary": {"model": "Owner Float Rigger / S-59", "size": "#4 – #2"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 11 Tournament", "size": "#2 – #1"},
+        "alternative": {"model": "Decoy Worm 9", "size": "#1 – #1/0"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["дроп-шот", "отводной", "Texas_rig", "Carolina_rig"],
+      "target_fish": {"primary": ["судак", "окунь"], "secondary": ["берш"]},
+      "seasonality": {"best": ["spring", "summer"], "good": ["autumn"]},
+      "water_body_fit": {"still_water": "high", "small_river": "high", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Дроп-шот: потряхивание на месте. Отводной: медленная протяжка с паузами.",
+      "example_lures": ["Reins Aji Adder 3″", "Crazy Fish MF Anchovy 3″", "Lucky John Wacky Worm 3.5″"]
+    },
+    {
+      "id": "vibro_4",
+      "size_inches": 4.0,
+      "size_mm": 100,
+      "type": "виброхвост",
+      "weight_base_g": 14.0,
+      "weight_typical_g": "10 – 18",
+      "weight_extreme_g": "22 – 30",
+      "single_hook": {
+        "primary": {"model": "Decoy Single 32", "size": "#1 – #2"},
+        "note": "Single 32 заканчивается на #2 — для 4″+ часто нужен двойник или мощный одинарник"
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 17 KG", "size": "#2/0 – #3/0"},
+        "verified_pairings": [
+          {"bait": "Keitech Swing Impact 4″", "hook_size": "#3/0 (Worm 17 / Worm 25)"},
+          {"bait": "Keitech Easy Shiner 4″", "hook_size": "#3/0 (Worm 25)"},
+          {"bait": "Reins Bubbling Shad 4″", "hook_size": "#4/0 (Worm 9)"}
+        ]
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["шарнир_чебурашка", "джиг-головка", "Texas_rig"],
+      "target_fish": {"primary": ["судак", "щука"], "secondary": ["крупный_берш", "сом_малый", "жерех_трофейный"]},
+      "seasonality": {"best": ["autumn", "summer"], "good": ["spring"]},
+      "water_body_fit": {"still_water": "medium", "small_river": "low", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Классическая ступенька. Базовый размер для среднего и крупного судака.",
+      "example_lures": ["Keitech Easy Shiner 4″", "Keitech Swing Impact 4″", "Lucky John Tioga 3.9″", "Reins Bubring Shad 4″"]
+    },
+    {
+      "id": "twister_4",
+      "size_inches": 4.0,
+      "size_mm": 100,
+      "type": "твистер",
+      "weight_base_g": 14.0,
+      "weight_typical_g": "10 – 18",
+      "weight_extreme_g": "до 28",
+      "single_hook": {
+        "primary": {"model": "Decoy Single 32", "size": "#2"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 17 KG", "size": "#2/0 – #3/0"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["шарнир_чебурашка", "джиг-головка"],
+      "target_fish": {"primary": ["судак", "щука"], "secondary": ["крупный_окунь"]},
+      "seasonality": {"best": ["summer", "autumn"], "good": ["spring"]},
+      "water_body_fit": {"still_water": "medium", "small_river": "low", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Медленная ступенька. Серповидный хвост создаёт сильные колебания.",
+      "example_lures": ["Mister Twister 4″", "Mann's Twister 4″", "Reins G-Tail Saturn 4″"]
+    },
+    {
+      "id": "slug_4",
+      "size_inches": 4.0,
+      "size_mm": 100,
+      "type": "слаг",
+      "weight_base_g": 9.5,
+      "weight_typical_g": "5 – 14",
+      "weight_extreme_g": "до 22",
+      "single_hook": {
+        "primary": {"model": "Decoy Single 32", "size": "#2"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 17 KG", "size": "#2/0 – #3/0"},
+        "alternative": {"model": "Owner 5102", "size": "#2/0"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["Texas_rig", "Carolina_rig", "wacky_rig", "шарнир_чебурашка"],
+      "target_fish": {"primary": ["щука", "судак"], "secondary": []},
+      "seasonality": {"best": ["spring", "autumn"], "good": ["winter_open"], "marginal": ["summer"]},
+      "water_body_fit": {"still_water": "high", "small_river": "medium", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Незацепляйка в коряжнике/траве. Медленное падение, рывки.",
+      "example_lures": ["Keitech Sexy Impact 4.8″", "Reins Slug 4″", "Lucky John S-Shad Tail"]
+    },
+    {
+      "id": "craw_4",
+      "size_inches": 4.0,
+      "size_mm": 100,
+      "type": "рак",
+      "weight_base_g": 18.0,
+      "weight_typical_g": "14 – 24",
+      "weight_extreme_g": "до 35",
+      "single_hook": {"note": "Только офсет — большое объёмное тело"},
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 25 Wide", "size": "#2/0 – #3/0"},
+        "alternative": {"model": "Owner 5102", "size": "#3/0"}
+      },
+      "hook_priority_by_cover": {"clean": "offset", "snags": "offset", "grass": "offset", "rocks": "offset"},
+      "rigs": ["шарнир_чебурашка", "Texas_rig", "отводной"],
+      "target_fish": {"primary": ["судак", "щука"], "secondary": []},
+      "seasonality": {"best": ["summer", "early_autumn"], "good": ["spring"]},
+      "water_body_fit": {"still_water": "medium", "small_river": "medium", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Дно: подброс, длинная пауза. Имитация ползущего/убегающего рака.",
+      "example_lures": ["Keitech Crazy Flapper 4.4″", "Reins Ax Craw 4″", "Bait Breath Bys Buster Big 4″"]
+    },
+    {
+      "id": "creature_4",
+      "size_inches": 4.0,
+      "size_mm": 100,
+      "type": "креатура",
+      "weight_base_g": 18.0,
+      "weight_typical_g": "14 – 22",
+      "weight_extreme_g": "до 32",
+      "single_hook": {"note": "Только офсет с Wide Gap"},
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 25 Wide", "size": "#3/0"},
+        "alternative": {"model": "Owner 5102", "size": "#3/0"}
+      },
+      "hook_priority_by_cover": {"clean": "offset", "snags": "offset", "grass": "offset", "rocks": "offset"},
+      "rigs": ["шарнир_чебурашка", "Texas_rig", "Punch_rig"],
+      "target_fish": {"primary": ["щука", "судак_крупный"], "secondary": []},
+      "seasonality": {"best": ["autumn"], "good": ["summer"]},
+      "water_body_fit": {"still_water": "high", "small_river": "low", "big_river": "medium", "reservoir": "high"},
+      "retrieve": "Медленная подача. По растительности — Texas rig.",
+      "example_lures": ["Reins Bubring Hog 4″", "Keitech Crazy Flapper 4.4″"]
+    },
+    {
+      "id": "vibro_5",
+      "size_inches": 5.0,
+      "size_mm": 125,
+      "type": "виброхвост",
+      "weight_base_g": 22.0,
+      "weight_typical_g": "16 – 28",
+      "weight_extreme_g": "30 – 40",
+      "single_hook": {"note": "Decoy Single 32 уже мал — нужен двойник или мощный одинарник"},
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 17 KG", "size": "#4/0 – #5/0"},
+        "alternative": {"model": "Owner 5102", "size": "#4/0 – #5/0"},
+        "verified_pairings": [
+          {"bait": "Keitech Easy Shiner 5″", "hook_size": "#5/0 (Worm 17)"}
+        ]
+      },
+      "hook_priority_by_cover": {"clean": "offset", "snags": "offset", "grass": "offset", "rocks": "offset"},
+      "rigs": ["шарнир_чебурашка", "джиг-головка_тяжёлая", "Texas_rig"],
+      "target_fish": {"primary": ["крупный_судак", "щука_трофейная"], "secondary": ["сом"]},
+      "seasonality": {"best": ["autumn"], "good": ["summer", "spring"]},
+      "water_body_fit": {"still_water": "medium", "small_river": "low", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Классика на крупных реках/водохранилищах. Ступенька.",
+      "example_lures": ["Keitech Easy Shiner 5″", "Keitech Swing Impact 5″", "Reins Bubring Shad 5″", "Lucky John Anira 4.7″"]
+    },
+    {
+      "id": "slug_5",
+      "size_inches": 5.0,
+      "size_mm": 125,
+      "type": "слаг",
+      "weight_base_g": 14.0,
+      "weight_typical_g": "8 – 20",
+      "weight_extreme_g": "до 30",
+      "single_hook": {"note": "Используется редко — крупный слаг обычно на офсет"},
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 17 KG", "size": "#3/0 – #4/0"},
+        "alternative": {"model": "Owner 5102", "size": "#3/0 – #4/0"}
+      },
+      "hook_priority_by_cover": {"clean": "offset", "snags": "offset", "grass": "offset", "rocks": "offset"},
+      "rigs": ["Texas_rig", "Carolina_rig", "wacky_rig"],
+      "target_fish": {"primary": ["щука", "судак_крупный"], "secondary": []},
+      "seasonality": {"best": ["spring", "autumn"], "good": ["winter_open"]},
+      "water_body_fit": {"still_water": "high", "small_river": "low", "big_river": "medium", "reservoir": "high"},
+      "retrieve": "Медленная незацепляйка. Хороша по коряжнику.",
+      "example_lures": ["Keitech Sexy Impact 4.8″", "Lucky John S-Shad Tail 5.5″"]
+    },
+    {
+      "id": "creature_5",
+      "size_inches": 5.0,
+      "size_mm": 125,
+      "type": "креатура",
+      "weight_base_g": 22.0,
+      "weight_typical_g": "16 – 28",
+      "weight_extreme_g": "до 40",
+      "single_hook": {"note": "Только офсет"},
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 25 Wide", "size": "#4/0 – #5/0"},
+        "alternative": {"model": "Owner 5102", "size": "#4/0"}
+      },
+      "hook_priority_by_cover": {"clean": "offset", "snags": "offset", "grass": "offset", "rocks": "offset"},
+      "rigs": ["шарнир_чебурашка", "Texas_rig", "Punch_rig"],
+      "target_fish": {"primary": ["трофейная_щука", "крупный_судак"], "secondary": []},
+      "seasonality": {"best": ["autumn"], "good": ["summer"]},
+      "water_body_fit": {"still_water": "medium", "small_river": "low", "big_river": "medium", "reservoir": "high"},
+      "retrieve": "Медленная подача. По коряжнику и траве.",
+      "example_lures": ["Reins Bubring Hog 5″", "Keitech Crazy Flapper 5″"]
+    },
+    {
+      "id": "worm_5",
+      "size_inches": 5.0,
+      "size_mm": 125,
+      "type": "червь",
+      "weight_base_g": 9.5,
+      "weight_typical_g": "5 – 14",
+      "weight_extreme_g": "до 22",
+      "single_hook": {
+        "primary": {"model": "Decoy Single 32", "size": "#2"}
+      },
+      "offset_hook": {
+        "primary": {"model": "Decoy Worm 17 KG", "size": "#2/0 – #3/0"},
+        "alternative": {"model": "Decoy Worm 9", "size": "#3/0 – #4/0"}
+      },
+      "hook_priority_by_cover": {"clean": "single", "snags": "offset", "grass": "offset", "rocks": "single"},
+      "rigs": ["дроп-шот", "отводной", "Texas_rig", "Carolina_rig"],
+      "target_fish": {"primary": ["судак_крупный", "крупный_окунь"], "secondary": []},
+      "seasonality": {"best": ["spring", "summer"], "good": ["autumn"]},
+      "water_body_fit": {"still_water": "high", "small_river": "medium", "big_river": "high", "reservoir": "high"},
+      "retrieve": "Дроп-шот / отводной: медленная анимация, длинные паузы.",
+      "example_lures": ["Reins Aji Adder 5″", "Lucky John Anira Worm 4.5″"]
+    }
+  ]
+}

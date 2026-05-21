@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Рыболовные инструменты</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #0e1014;
+    --surface: #16191f;
+    --surface2: #1c1f27;
+    --border:  #252830;
+    --accent:  #c8a96e;
+    --text:    #d4d8e0;
+    --muted:   #6b7280;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    padding: 32px 24px 28px;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    border-left: 3px solid var(--accent);
+    padding-left: 18px;
+  }
+
+  .site-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    letter-spacing: 4px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .site-desc {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .main {
+    flex: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 48px 24px;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  .tool-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 24px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: border-color 0.15s, background 0.15s, transform 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--card-accent, var(--accent));
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .tool-card:hover {
+    border-color: var(--card-accent, var(--accent));
+    background: var(--surface2);
+    transform: translateY(-2px);
+  }
+
+  .tool-card:hover::before { opacity: 1; }
+
+  .tool-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .tool-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    background: var(--icon-bg);
+    border: 1px solid var(--icon-border);
+  }
+
+  .tool-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: var(--tag-bg);
+    color: var(--card-accent, var(--accent));
+    border: 1px solid var(--tag-border);
+    white-space: nowrap;
+  }
+
+  .tool-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    color: #fff;
+    line-height: 1.1;
+  }
+
+  .tool-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .tool-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .tool-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  .tool-arrow {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 14px;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+
+  .tool-card:hover .tool-arrow {
+    border-color: var(--card-accent, var(--accent));
+    color: var(--card-accent, var(--accent));
+  }
+
+  /* Soon cards */
+  .tool-card--soon {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .tool-card--soon::before { display: none; }
+
+  .site-footer {
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    padding: 20px 24px;
+    text-align: center;
+  }
+
+  .site-footer p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 600px) {
+    .site-title { font-size: 30px; }
+    .main { padding: 32px 16px; }
+    .tools-grid { grid-template-columns: 1fr; }
+    .tool-card { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-title">Рыболовные инструменты</div>
+    <div class="site-desc">Практические справочники и конфигураторы для спиннингиста</div>
+  </div>
+</header>
+
+<main class="main">
+
+  <div class="section-label">Доступные инструменты</div>
+
+  <div class="tools-grid">
+
+    <a class="tool-card" href="./lure-tool/"
+       style="--card-accent:#c8a96e;--icon-bg:rgba(200,169,110,0.12);--icon-border:rgba(200,169,110,0.25);--tag-bg:rgba(200,169,110,0.10);--tag-border:rgba(200,169,110,0.22)">
+      <div class="tool-card-top">
+        <div class="tool-icon">🪝</div>
+        <span class="tool-tag">Джиг · Силикон</span>
+      </div>
+      <div class="tool-name">Подбор оснастки для силикона</div>
+      <div class="tool-desc">
+        Конфигуратор и справочник по крючкам, грузам и монтажам для силиконовых приманок.
+        Покрывает размеры 1–5″ и весь диапазон от микроджига до классики.
+      </div>
+      <div class="tool-footer">
+        <span class="tool-meta">28 типов приманок · Decoy · Owner</span>
+        <span class="tool-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Заглушка — удали когда добавишь следующий инструмент -->
+    <div class="tool-card tool-card--soon"
+       style="--card-accent:#5b8dd9;--icon-bg:rgba(91,141,217,0.12);--icon-border:rgba(91,141,217,0.2);--tag-bg:rgba(91,141,217,0.1);--tag-border:rgba(91,141,217,0.2)">
+      <div class="tool-card-top">
+        <div class="tool-icon">🎣</div>
+        <span class="tool-tag" style="color:#5b8dd9">Скоро</span>
+      </div>
+      <div class="tool-name">Следующий инструмент</div>
+      <div class="tool-desc">Здесь появится следующий инструмент. Для добавления — создай папку рядом с lure-tool/ и добавь сюда новую карточку.</div>
+      <div class="tool-footer">
+        <span class="tool-meta">В разработке</span>
+        <span class="tool-arrow">→</span>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p>Данные обновляются · замечания и предложения приветствуются</p>
+</footer>
+
+</body>
+</html>

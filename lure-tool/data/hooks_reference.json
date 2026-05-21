@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "metadata": {
+    "version": "0.1.0",
+    "last_updated": "2026-05-21",
+    "description": "Справочник моделей крючков для оснащения силиконовых приманок",
+    "sources": [
+      "Производители: Decoy (Katsuichi Co., Ltd.), Owner America",
+      "Размеры/спецификации: bestangler.com, sportfishtackle.com, tacklewarehouse.com",
+      "Применение и связки с приманками: блог Дмитрия Савина (midacompany.ru), spinningspb.ru, fspinning.ru"
+    ]
+  },
+
+  "single_hooks": {
+    "decoy_single_32": {
+      "brand": "Decoy",
+      "full_name": "Decoy Single 32 Finesse Single",
+      "product_code": "Worm 32 / Single 32",
+      "type": "одинарник_прямое_цевьё",
+      "description": "Тонкая проволока, крупное ушко, NS Black coating. Микро-бородка. Создан под чебурашку (шарнир) и трауты-блёсны.",
+      "wire_thickness": "extra fine (0.4–0.5 мм у малых размеров)",
+      "best_for": ["шарнир_с_чебурашкой", "форелевые_блёсны", "микроджиг", "лёгкий_джиг"],
+      "sizes": [
+        {"size": "#12", "length_mm": 14.0, "height_mm": 5.20},
+        {"size": "#10", "length_mm": 15.42, "height_mm": 6.30},
+        {"size": "#8",  "length_mm": 17.45, "height_mm": 7.25},
+        {"size": "#6",  "length_mm": 20.20, "height_mm": 8.00},
+        {"size": "#4",  "length_mm": 23.20, "height_mm": 9.05},
+        {"size": "#2",  "length_mm": 26.60, "height_mm": 10.25}
+      ],
+      "size_range_available": "#12 до #2",
+      "notes": "Один из главных одинарников для микроджига. На размерах от 3″ и крупнее может не хватать размера/мощности — переходи на двойник или офсет."
+    },
+
+    "owner_s59": {
+      "brand": "Owner",
+      "full_name": "Owner 51580 S-59",
+      "product_code": "51580 / S-59",
+      "type": "одинарник_прямое_цевьё",
+      "description": "Тонкая прочная проволока, увеличенное ушко (под чебурашку), полукруглый загиб, лёгкий внутренний загиб жала. Super Needle Point.",
+      "wire_thickness": "тонкая",
+      "best_for": ["микроджиг_твистер_до_1.6″", "микроджиг_виброхвост_1.5–1.8″", "пиявки_червячки", "ультралайт_воблеры_блёсны"],
+      "sizes": [
+        {"size": "#12"}, {"size": "#10"}, {"size": "#8"}, {"size": "#6"}, {"size": "#4"}
+      ],
+      "size_range_available": "#12 до #4",
+      "notes": "Классический выбор для мелкого силикона. На приманках 1″–2″ работает безотказно. Альтернатива — Owner Float Rigger."
+    },
+
+    "owner_float_rigger": {
+      "brand": "Owner",
+      "full_name": "Owner Float Rigger",
+      "product_code": "Float Rigger",
+      "type": "одинарник_прямое_цевьё",
+      "description": "Очень тонкая проволока, ультра-лёгкий, минимальное влияние на игру мягкой приманки.",
+      "wire_thickness": "ультра-тонкая",
+      "best_for": ["пиявки_черви", "мелкие_твистеры", "очень_деликатная_проводка"],
+      "sizes": [
+        {"size": "#10"}, {"size": "#8"}, {"size": "#6"}, {"size": "#4"}
+      ],
+      "size_range_available": "#10 до #4",
+      "notes": "Самый деликатный выбор. Тонкая проволока — обратная сторона: на крупной щуке/судаке может разогнуться."
+    }
+  },
+
+  "offset_hooks": {
+    "decoy_worm_17_kg": {
+      "brand": "Decoy",
+      "full_name": "Decoy KG Hook Worm 17",
+      "product_code": "Worm 17 / Kg Hook",
+      "type": "офсет_wide_gap",
+      "description": "Базовый универсальный офсет. Стандартные пропорции, средняя толщина проволоки, средняя высота жала. Чёрный никель. Подходит под большинство приманок.",
+      "wire_thickness": "средняя",
+      "best_for": ["джиг_шарнир", "Texas_rig", "крупные_приманки_3–5″", "силовая_ловля"],
+      "sizes": [
+        {"size": "#6",   "length_mm": 23.1, "height_mm": 10.0},
+        {"size": "#4",   "length_mm": 27.2, "height_mm": 11.9},
+        {"size": "#3",   "length_mm": 29.9, "height_mm": 12.8},
+        {"size": "#2",   "length_mm": 33.7, "height_mm": 13.7},
+        {"size": "#1",   "length_mm": 37.1, "height_mm": 14.8},
+        {"size": "#1/0", "length_mm": 39.4, "height_mm": 16.3},
+        {"size": "#2/0", "length_mm": 42.6, "height_mm": 17.8},
+        {"size": "#3/0", "length_mm": 46.5, "height_mm": 19.9},
+        {"size": "#4/0", "length_mm": 51.5, "height_mm": 20.7},
+        {"size": "#5/0", "length_mm": 55.9}
+      ],
+      "size_range_available": "#6 до #5/0",
+      "bait_pairings_verified": [
+        {"bait": "Action Plastics 3FG", "hook_size": "#2"},
+        {"bait": "Keitech Swing Impact 3″", "hook_size": "#1"},
+        {"bait": "Keitech Easy Shiner 3″", "hook_size": "#1/0"},
+        {"bait": "Keitech Swing Impact 3.5″", "hook_size": "#2/0"},
+        {"bait": "Keitech Swing Impact 4″", "hook_size": "#3/0"},
+        {"bait": "Keitech Swing Impact FAT 3.8″", "hook_size": "#5/0"}
+      ],
+      "notes": "Самая широкая в линейке — от мелкого силикона до крупных хайповых баитов. Считается базовой."
+    },
+
+    "decoy_worm_11_tournament": {
+      "brand": "Decoy",
+      "full_name": "Decoy Worm 11 Tournament",
+      "product_code": "Worm 11",
+      "type": "офсет_short_shank",
+      "description": "Спортивная серия. Чуть более тонкая проволока, жало смотрит на ушко, малая высота жала над ступенькой. Короткое цевье.",
+      "wire_thickness": "тонкая",
+      "best_for": ["микроджиг", "отводной_поводок", "Carolina_rig", "мелкие_твистеры_виброхвосты"],
+      "sizes": [
+        {"size": "#4"}, {"size": "#2"}, {"size": "#1"}, {"size": "#1/0"}, {"size": "#2/0"}
+      ],
+      "size_range_available": "#4 до #2/0",
+      "bait_pairings_verified": [
+        {"bait": "Action Plastics 3FG", "hook_size": "#1/0"},
+        {"bait": "Keitech Easy Shiner 3″", "hook_size": "#2/0"},
+        {"bait": "Keitech Swing Impact FAT 2.8″", "hook_size": "#2/0"},
+        {"bait": "Твистер/виброхвост 1.6–2″", "hook_size": "#4"},
+        {"bait": "Червь/пиявка 2.5″+", "hook_size": "#4"}
+      ],
+      "notes": "Любимый выбор спортсменов для микроджига и отводного. Тонкая проволока — но не разгибается. Подходит для приманок до 3.5–4″."
+    },
+
+    "decoy_worm_25_wide": {
+      "brand": "Decoy",
+      "full_name": "Decoy Worm 25 Hook Wide",
+      "product_code": "Worm 25",
+      "type": "офсет_wide_gap_round_bend",
+      "description": "Круглый загиб, средняя толщина проволоки. Хорошо подходит для объёмных или высоких тел (FAT-виброхвосты, креатуры).",
+      "wire_thickness": "средняя",
+      "best_for": ["объёмные_приманки", "FAT_виброхвосты", "креатуры", "раки"],
+      "sizes": [
+        {"size": "#2"}, {"size": "#1"}, {"size": "#1/0"}, {"size": "#2/0"}, {"size": "#3/0"}, {"size": "#4/0"}, {"size": "#5/0"}
+      ],
+      "size_range_available": "#2 до #5/0",
+      "bait_pairings_verified": [
+        {"bait": "Keitech Easy Shiner 3″", "hook_size": "#1"},
+        {"bait": "Keitech Swing Impact FAT 2.8″", "hook_size": "#1"},
+        {"bait": "Keitech Swing Impact 3.5″", "hook_size": "#1/0"},
+        {"bait": "Keitech Swing Impact FAT 3.3″", "hook_size": "#2/0 / #3/0"},
+        {"bait": "Bass Assassin 4″", "hook_size": "#2/0"},
+        {"bait": "Keitech Easy Shiner 4″", "hook_size": "#3/0"},
+        {"bait": "Keitech Swing Impact FAT 3.8″", "hook_size": "#4/0"}
+      ],
+      "notes": "Выбор под объёмные тела. Круглый загиб даёт больший зазор."
+    },
+
+    "owner_5102": {
+      "brand": "Owner",
+      "full_name": "Owner Offset Shank Wide Gap Worm Hook 5102",
+      "product_code": "5102",
+      "type": "офсет_wide_gap_heavy",
+      "description": "Тяжёлый офсет с Cutting Point. XXX-strong shank, чёрный хром. Под крупные приманки и силовую ловлю.",
+      "wire_thickness": "толстая (heavy duty)",
+      "best_for": ["крупные_приманки_4–6″", "Texas_rig_тяжёлая_ловля", "крупная_щука_басс"],
+      "sizes": [
+        {"size": "#1/0"}, {"size": "#2/0"}, {"size": "#3/0"}, {"size": "#4/0"}, {"size": "#5/0"}, {"size": "#7/0"}, {"size": "#11/0"}
+      ],
+      "size_range_available": "#1/0 до #11/0 (без некоторых промежуточных)",
+      "notes": "Для микроджига и лайта не подходит — слишком толстая проволока. Зона применения — крупная щука, тяжёлая Texas-ловля."
+    },
+
+    "owner_j_light": {
+      "brand": "Owner",
+      "full_name": "Owner J-Light Hook",
+      "product_code": "J-Light",
+      "type": "офсет_light_wire",
+      "description": "Лёгкий офсет тонкой проволоки. Не давит мелкий силикон.",
+      "wire_thickness": "тонкая",
+      "best_for": ["микроджиг_2–2.5″", "отводной", "лёгкие_монтажи"],
+      "sizes": [
+        {"size": "#10"}, {"size": "#8"}, {"size": "#6"}, {"size": "#4"}, {"size": "#2"}, {"size": "#1"}
+      ],
+      "size_range_available": "#10 до #1 (зависит от партии)",
+      "notes": "Бюджетная альтернатива Decoy Worm 11. Для виброхвостов 2″ — #6."
+    }
+  },
+
+  "size_terminology_note": "Размеры крючков идут по убыванию номера до #1, затем переходят на дроби: #1/0, #2/0, #3/0… (читается «1 нулевой», «2 нулевых»). Чем больше число с дробью — тем крупнее крючок. Чем больше число до #1 — тем меньше крючок."
+}
