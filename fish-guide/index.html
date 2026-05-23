@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109350380', 'ym');
+
+    ym(109350380, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109350380" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Справочник хищных рыб</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <a href="../" class="back-link">← все инструменты</a>
+    <h1>Справочник хищных рыб</h1>
+    <p class="subtitle">Биология, повадки и тактика ловли на спиннинг</p>
+  </div>
+</header>
+
+<main class="content">
+
+  <!-- ============ INDEX VIEW (картотека) ============ -->
+  <section id="index-view" class="view view--active">
+    <div class="view-inner">
+
+      <div class="index-controls">
+        <div class="sort-control">
+          <span class="sort-label">Сортировка:</span>
+          <div class="sort-buttons" role="tablist">
+            <button class="sort-btn sort-btn--active" data-sort="name">По алфавиту</button>
+            <button class="sort-btn" data-sort="difficulty">По сложности</button>
+            <button class="sort-btn" data-sort="season">По сезону</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="fish-grid" class="fish-grid">
+        <!-- карточки-превью рендерятся JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ FISH VIEW (полная карточка) ============ -->
+  <section id="fish-view" class="view" hidden>
+    <div class="view-inner">
+
+      <button class="back-to-index" id="back-to-index">
+        <span>←</span>
+        <span>Назад к картотеке</span>
+      </button>
+
+      <article id="fish-card" class="fish-card">
+        <!-- содержимое карточки рендерится JS -->
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <p>База знаний обновляется. Замечания и уточнения приветствуются.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
