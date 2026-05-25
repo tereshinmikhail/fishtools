@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 140" fill="none">
+  <defs>
+    <linearGradient id="zander-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a5660"/>
+      <stop offset="55%" stop-color="#788790"/>
+      <stop offset="100%" stop-color="#c5cdd4"/>
+    </linearGradient>
+    <linearGradient id="zander-fin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a5660"/>
+      <stop offset="100%" stop-color="#8e9ba4"/>
+    </linearGradient>
+  </defs>
+  <path d="M 28 60 L 60 36 L 68 70 L 60 104 L 28 80 Z" fill="url(#zander-fin)" stroke="#2f3a44" stroke-width="0.8"/>
+  <path d="M 60 70 Q 65 36, 130 28 Q 220 18, 305 32 Q 345 40, 365 60 Q 372 65, 374 70 Q 372 75, 365 80 Q 345 100, 305 108 Q 220 122, 130 112 Q 65 104, 60 70 Z" fill="url(#zander-body)" stroke="#2f3a44" stroke-width="1"/>
+  <path d="M 95 32 L 100 8 L 115 6 L 130 6 L 145 8 L 160 8 L 175 10 L 190 12 L 200 28 Q 150 32, 95 32 Z" fill="url(#zander-fin)" stroke="#2f3a44" stroke-width="0.8"/>
+  <g stroke="#2f3a44" stroke-width="0.5">
+    <line x1="105" y1="32" x2="107" y2="9"/>
+    <line x1="118" y1="30" x2="120" y2="6"/>
+    <line x1="132" y1="30" x2="134" y2="6"/>
+    <line x1="146" y1="30" x2="149" y2="8"/>
+    <line x1="160" y1="30" x2="163" y2="9"/>
+    <line x1="175" y1="30" x2="178" y2="11"/>
+    <line x1="190" y1="30" x2="195" y2="14"/>
+  </g>
+  <path d="M 215 24 L 240 16 L 270 20 L 285 30 Q 250 32, 215 32 Z" fill="url(#zander-fin)" stroke="#2f3a44" stroke-width="0.8"/>
+  <path d="M 215 108 L 250 122 L 280 120 L 280 110 Q 250 110, 215 108 Z" fill="url(#zander-fin)" stroke="#2f3a44" stroke-width="0.8"/>
+  <path d="M 155 106 L 175 122 L 195 120 L 180 106 Z" fill="url(#zander-fin)" stroke="#2f3a44" stroke-width="0.8"/>
+  <path d="M 135 82 L 155 100 L 168 92 L 158 82 Z" fill="url(#zander-fin)" stroke="#2f3a44" stroke-width="0.8"/>
+  <path d="M 130 40 Q 132 70, 126 100" stroke="#2f3a44" stroke-width="1.2" fill="none" opacity="0.7"/>
+  <g fill="#3a4550" opacity="0.45">
+    <path d="M 170 30 Q 168 70, 170 108 L 178 108 Q 180 70, 178 30 Z"/>
+    <path d="M 200 28 Q 198 70, 200 110 L 208 110 Q 210 70, 208 28 Z"/>
+    <path d="M 230 26 Q 228 70, 230 112 L 238 112 Q 240 70, 238 26 Z"/>
+    <path d="M 260 26 Q 258 70, 260 112 L 268 112 Q 270 70, 268 26 Z"/>
+    <path d="M 290 28 Q 288 70, 290 110 L 298 110 Q 300 70, 298 28 Z"/>
+  </g>
+  <path d="M 132 70 Q 220 72, 340 70" stroke="#2f3a44" stroke-width="0.6" fill="none" opacity="0.4"/>
+  <path d="M 340 50 L 360 58 L 372 70 L 360 82 L 340 90" stroke="#2f3a44" stroke-width="1" fill="none"/>
+  <line x1="340" y1="72" x2="372" y2="72" stroke="#2f3a44" stroke-width="0.8"/>
+  <g fill="#f0e8d2" stroke="#3a4550" stroke-width="0.3">
+    <path d="M 356 71 L 358 76 L 360 71 Z"/>
+    <path d="M 364 71 L 366 75 L 368 71 Z"/>
+  </g>
+  <circle cx="328" cy="58" r="6" fill="#f4e8c8"/>
+  <circle cx="328" cy="58" r="4.5" fill="#a89968"/>
+  <circle cx="328" cy="58" r="2" fill="#1a1f14"/>
+  <circle cx="329" cy="57" r="0.8" fill="#fff"/>
+</svg>
