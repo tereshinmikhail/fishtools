@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 140" fill="none">
+  <defs>
+    <linearGradient id="perch-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5b7a4a"/>
+      <stop offset="50%" stop-color="#8aa168"/>
+      <stop offset="100%" stop-color="#dabb73"/>
+    </linearGradient>
+    <linearGradient id="perch-red" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c75e3f"/>
+      <stop offset="100%" stop-color="#9c4530"/>
+    </linearGradient>
+    <linearGradient id="perch-fin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6a7a4f"/>
+      <stop offset="100%" stop-color="#a8b380"/>
+    </linearGradient>
+  </defs>
+  <path d="M 35 70 L 65 38 L 75 70 L 65 102 Z" fill="url(#perch-red)" stroke="#7a3525" stroke-width="0.8"/>
+  <path d="M 65 70 Q 75 30, 160 22 Q 250 18, 320 35 Q 350 44, 358 70 Q 350 96, 320 105 Q 250 122, 160 118 Q 75 110, 65 70 Z" fill="url(#perch-body)" stroke="#3d4a2c" stroke-width="1"/>
+  <path d="M 110 30 L 120 8 L 135 6 L 145 8 L 160 6 L 175 8 L 185 10 L 200 12 L 215 14 L 230 18 L 220 32 Q 165 30, 110 30 Z" fill="url(#perch-fin)" stroke="#4a5635" stroke-width="0.8"/>
+  <g stroke="#3d4a2c" stroke-width="0.6">
+    <line x1="120" y1="30" x2="122" y2="10"/>
+    <line x1="135" y1="29" x2="137" y2="7"/>
+    <line x1="150" y1="28" x2="153" y2="7"/>
+    <line x1="165" y1="28" x2="168" y2="8"/>
+    <line x1="180" y1="29" x2="184" y2="10"/>
+    <line x1="195" y1="29" x2="200" y2="13"/>
+    <line x1="210" y1="30" x2="216" y2="16"/>
+  </g>
+  <path d="M 240 20 L 260 12 L 285 16 L 290 30 Q 265 32, 240 32 Z" fill="url(#perch-fin)" stroke="#4a5635" stroke-width="0.8"/>
+  <path d="M 240 108 L 280 124 L 300 122 L 295 108 Q 265 110, 240 108 Z" fill="url(#perch-red)" stroke="#7a3525" stroke-width="0.8"/>
+  <path d="M 175 102 L 195 122 L 215 120 L 200 104 Z" fill="url(#perch-red)" stroke="#7a3525" stroke-width="0.8"/>
+  <path d="M 145 80 L 165 98 L 180 92 L 168 80 Z" fill="url(#perch-fin)" stroke="#4a5635" stroke-width="0.8"/>
+  <path d="M 135 38 Q 138 70, 132 102" stroke="#3d4a2c" stroke-width="1.2" fill="none" opacity="0.8"/>
+  <path d="M 130 95 L 135 102" stroke="#7a3525" stroke-width="1" opacity="0.6"/>
+  <g fill="#3d4a2c" opacity="0.55">
+    <path d="M 165 30 Q 162 70, 165 108 L 175 108 Q 178 70, 175 30 Z"/>
+    <path d="M 200 28 Q 197 70, 200 110 L 210 110 Q 213 70, 210 28 Z"/>
+    <path d="M 235 26 Q 232 70, 235 112 L 245 112 Q 248 70, 245 26 Z"/>
+    <path d="M 270 28 Q 267 70, 270 110 L 280 110 Q 283 70, 280 28 Z"/>
+    <path d="M 300 32 Q 297 70, 300 108 L 310 108 Q 313 70, 310 32 Z"/>
+  </g>
+  <circle cx="330" cy="55" r="5.5" fill="#1a1f14"/>
+  <circle cx="330" cy="55" r="3.5" fill="#d4622e"/>
+  <circle cx="331" cy="54" r="1.5" fill="#f4e8c8"/>
+  <path d="M 350 70 Q 355 73, 358 72" stroke="#3d4a2c" stroke-width="1.2" fill="none"/>
+</svg>
