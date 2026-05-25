@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 140" fill="none">
+  <defs>
+    <linearGradient id="asp-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a6670"/>
+      <stop offset="40%" stop-color="#a8b3bd"/>
+      <stop offset="100%" stop-color="#e8ecef"/>
+    </linearGradient>
+    <linearGradient id="asp-fin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a5660"/>
+      <stop offset="100%" stop-color="#8e9ba4"/>
+    </linearGradient>
+  </defs>
+  <path d="M 22 70 L 58 32 L 70 70 L 58 108 Z" fill="url(#asp-fin)" stroke="#2f3a44" stroke-width="0.8"/>
+  <path d="M 60 70 Q 65 38, 140 30 Q 230 22, 305 36 Q 340 44, 360 64 Q 368 70, 360 76 Q 340 96, 305 104 Q 230 118, 140 110 Q 65 102, 60 70 Z" fill="url(#asp-body)" stroke="#2f3a44" stroke-width="1"/>
+  <path d="M 195 28 L 210 8 L 235 8 L 250 28 Q 222 30, 195 28 Z" fill="url(#asp-fin)" stroke="#2f3a44" stroke-width="0.8"/>
+  <path d="M 200 108 L 230 124 L 260 120 L 250 108 Q 225 110, 200 108 Z" fill="url(#asp-fin)" stroke="#2f3a44" stroke-width="0.8"/>
+  <path d="M 160 102 L 180 122 L 200 120 L 188 102 Z" fill="url(#asp-fin)" stroke="#2f3a44" stroke-width="0.8"/>
+  <path d="M 140 78 L 165 104 L 185 96 L 168 76 Z" fill="url(#asp-fin)" stroke="#2f3a44" stroke-width="0.8"/>
+  <path d="M 140 38 Q 142 70, 132 100" stroke="#2f3a44" stroke-width="1.2" fill="none" opacity="0.7"/>
+  <path d="M 130 95 L 140 100" stroke="#2f3a44" stroke-width="0.8" opacity="0.5"/>
+  <g stroke="#2f3a44" stroke-width="0.3" fill="none" opacity="0.25">
+    <path d="M 150 50 Q 160 55, 170 50"/>
+    <path d="M 175 48 Q 185 53, 195 48"/>
+    <path d="M 200 47 Q 210 52, 220 47"/>
+    <path d="M 225 47 Q 235 52, 245 47"/>
+    <path d="M 250 49 Q 260 54, 270 49"/>
+    <path d="M 275 52 Q 285 57, 295 52"/>
+    <path d="M 155 60 Q 165 65, 175 60"/>
+    <path d="M 180 58 Q 190 63, 200 58"/>
+    <path d="M 205 57 Q 215 62, 225 57"/>
+    <path d="M 230 57 Q 240 62, 250 57"/>
+    <path d="M 255 59 Q 265 64, 275 59"/>
+  </g>
+  <path d="M 138 72 Q 220 74, 340 70" stroke="#2f3a44" stroke-width="0.5" fill="none" opacity="0.35"/>
+  <path d="M 340 50 Q 358 56, 365 64 Q 368 70, 365 76 Q 358 84, 340 90" stroke="#2f3a44" stroke-width="1" fill="none"/>
+  <line x1="332" y1="76" x2="365" y2="72" stroke="#2f3a44" stroke-width="1.5"/>
+  <line x1="332" y1="76" x2="345" y2="78" stroke="#2f3a44" stroke-width="0.8"/>
+  <circle cx="330" cy="60" r="5.5" fill="#1a1f14"/>
+  <circle cx="330" cy="60" r="4" fill="#a89968"/>
+  <circle cx="330" cy="60" r="1.8" fill="#1a1f14"/>
+  <circle cx="331" cy="59" r="0.8" fill="#fff"/>
+</svg>
